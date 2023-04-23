@@ -22,8 +22,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Passport::tokensExpireIn(now()->addHours(config('jwt_access_token_time')));
-        Passport::refreshTokensExpireIn(now()->addDays(config_path('jwt_refresh_token_time')));
-        Passport::personalAccessTokensExpireIn(now()->addMonths(1));
+        Passport::tokensExpireIn(now()->addHours(config('auth.jwt_access_token_time')));
+        Passport::refreshTokensExpireIn(now()->addDays(config('auth.jwt_refresh_token_time')));
+        Passport::personalAccessTokensExpireIn(now()->addMonths(config('auth.jwt_access_token_time')));
     }
 }

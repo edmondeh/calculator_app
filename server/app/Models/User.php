@@ -3,16 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-use App\Traits\UUID;
 use App\Traits\PasswordHasher;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, UUID, PasswordHasher;
+    use HasApiTokens, HasFactory, Notifiable, HasUuids, PasswordHasher;
 
     /**
      * The attributes that are mass assignable.
@@ -45,12 +45,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return void
+     */
     protected static function boot(): void
     {
         parent::boot();
 
         static::creating(function ($user) {
-            self::generateUUID($user);
             self::hashPassword($user);
         });
     }

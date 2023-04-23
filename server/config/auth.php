@@ -114,13 +114,14 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+    'password_timeout'                   => 10800,
 
     /*
     |--------------------------------------------------------------------------
     | JWT Configuration Time
     |--------------------------------------------------------------------------
     */
-    'jwt_access_token_time' => env('JWT_ACCESS_TOKEN_TIME'),
-    'jwt_refresh_token_time' => env('JWT_REFRESH_TOKEN_TIME')
+    'jwt_access_token_time'              => env('JWT_ACCESS_TOKEN_TIME'),
+    'jwt_refresh_token_time'             => env('JWT_REFRESH_TOKEN_TIME'),
+    'passport_personal_access_client_id' => env('PASSPORT_PERSONAL_ACCESS_CLIENT_ID'),
 ];

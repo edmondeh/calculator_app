@@ -3,11 +3,13 @@
 namespace App\Providers;
 
 use App\Interfaces\AuthServiceInterface;
+use App\Interfaces\CalculatorServiceInterface;
 use App\Interfaces\OAuthClinetRepositoryInterface;
 use App\Interfaces\UserRepositoryInterface;
 use App\Repositories\OAuthClinetRepository;
 use App\Repositories\UserRepository;
 use App\Services\AuthService;
+use App\Services\CalculatorService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
         AuthServiceInterface::class           => AuthService::class,
         UserRepositoryInterface::class        => UserRepository::class,
         OAuthClinetRepositoryInterface::class => OAuthClinetRepository::class,
+        CalculatorServiceInterface::class     => CalculatorService::class,
     ];
 
     /**

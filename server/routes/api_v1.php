@@ -23,9 +23,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('auth')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('register', [AuthController::class, 'register']);
-    Route::post('refresh_token', [AuthController::class, 'refresh_token']);
+    Route::post('refresh_token', [AuthController::class, 'refreshToken']);
 });
 
 Route::middleware('auth:api')->group(function () {
     Route::post('calculate', CalculatorController::class);
+    Route::get('calculations', [CalculatorController::class, 'allCalculations']);
 });

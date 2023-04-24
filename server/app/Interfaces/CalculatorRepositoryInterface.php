@@ -2,12 +2,8 @@
 
 namespace App\Interfaces;
 
-use Illuminate\Http\JsonResponse;
-
-interface CalculatorServiceInterface
+interface CalculatorRepositoryInterface
 {
-    public function calculate(string $numbers, string $userId): JsonResponse;
-
     public function allCalculations(
         string $userId,
         string $page = null,

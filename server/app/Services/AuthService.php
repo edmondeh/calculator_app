@@ -78,7 +78,7 @@ class AuthService implements AuthServiceInterface
      * @param  array  $refreshTokenData
      * @return JsonResponse
      */
-    public function refresh_token(array $refreshTokenData): JsonResponse
+    public function refreshToken(array $refreshTokenData): JsonResponse
     {
         $oClient = $this->oAuthClinetRepository->getOAuthClient();
         if (!$oClient) {

@@ -10,5 +10,5 @@ interface AuthServiceInterface
 
     public function register(array $registerData): JsonResponse;
 
-    public function refresh_token(array $refreshTokenData): JsonResponse;
+    public function refreshToken(array $refreshTokenData): JsonResponse;
 }

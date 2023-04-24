@@ -45,10 +45,10 @@ class AuthController extends Controller
      * @param  RefreshTokenFormRequest  $request
      * @return JsonResponse
      */
-    public function refresh_token(RefreshTokenFormRequest $request): JsonResponse
+    public function refreshToken(RefreshTokenFormRequest $request): JsonResponse
     {
         $refreshTokenData = $request->validated();
 
-        return $this->authService->refresh_token($refreshTokenData);
+        return $this->authService->refreshToken($refreshTokenData);
     }
 }

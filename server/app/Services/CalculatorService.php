@@ -38,12 +38,21 @@ class CalculatorService implements CalculatorServiceInterface
         ]);
     }
 
+    /**
+     * @param  string       $userId
+     * @param  string|null  $page
+     * @param  string|null  $take
+     * @param  string|null  $order
+     * @return mixed
+     */
     public function allCalculations(
         string $userId,
         string $page = null,
         string $take = null,
         ?string $order = 'desc'
-    ) {
-        return $this->calculatorRepository->allCalculations($userId, $page, $take, $order);
+    ): JsonResponse {
+        $result = $this->calculatorRepository->allCalculations($userId, $page, $take, $order);
+
+        return response()->json($result);
     }
 }

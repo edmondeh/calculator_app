@@ -26,7 +26,11 @@ class CalculatorController extends Controller
         return $this->calculatorService->calculate($data['numbers'], $userId);
     }
 
-    public function allCalculations(Request $request)
+    /**
+     * @param  Request  $request
+     * @return JsonResponse
+     */
+    public function allCalculations(Request $request): JsonResponse
     {
         $userId = $request->user()->id;
 

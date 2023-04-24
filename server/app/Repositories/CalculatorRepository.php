@@ -17,12 +17,19 @@ class CalculatorRepository extends BaseRepository implements CalculatorRepositor
         parent::__construct($model);
     }
 
+    /**
+     * @param  string       $userId
+     * @param  string|null  $page
+     * @param  string|null  $take
+     * @param  string|null  $order
+     * @return Collection|LengthAwarePaginator
+     */
     public function allCalculations(
         string $userId,
         ?string $page = null,
         string $take = null,
         ?string $order = 'desc'
-    ): Collection|LengthAwarePaginator {
+    ): LengthAwarePaginator|array {
         $queryBuilder = $this->model->toBase();
 
         $queryBuilder->where('user_id', $userId);
@@ -33,6 +40,6 @@ class CalculatorRepository extends BaseRepository implements CalculatorRepositor
             return $queryBuilder->paginate(perPage: $take, page: $page);
         }
 
-        return $queryBuilder->get();
+        return ['data' => $queryBuilder->get()];
     }
 }

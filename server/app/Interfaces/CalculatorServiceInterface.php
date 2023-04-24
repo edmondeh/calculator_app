@@ -13,5 +13,5 @@ interface CalculatorServiceInterface
         string $page = null,
         string $take = null,
         string $order = 'desc'
-    );
+    ): JsonResponse;
 }

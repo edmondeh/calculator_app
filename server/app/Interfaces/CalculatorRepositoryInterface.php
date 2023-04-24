@@ -2,6 +2,8 @@
 
 namespace App\Interfaces;
 
+use Illuminate\Pagination\LengthAwarePaginator;
+
 interface CalculatorRepositoryInterface
 {
     public function allCalculations(
@@ -9,5 +11,5 @@ interface CalculatorRepositoryInterface
         string $page = null,
         string $take = null,
         string $order = 'desc'
-    );
+    ): LengthAwarePaginator|array;
 }

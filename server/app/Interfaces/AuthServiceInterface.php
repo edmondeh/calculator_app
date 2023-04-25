@@ -6,9 +6,9 @@ use Illuminate\Http\JsonResponse;
 
 interface AuthServiceInterface
 {
-    public function login($loginData): JsonResponse;
+    public function login(array $loginData): JsonResponse;
 
-    public function register($registerData): JsonResponse;
+    public function register(array $registerData): JsonResponse;
 
-    public function refresh_token($refreshTokenData): JsonResponse;
+    public function refreshToken(array $refreshTokenData): JsonResponse;
 }

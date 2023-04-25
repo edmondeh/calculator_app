@@ -19,7 +19,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
      * @param  string  $email
      * @return User|null
      */
-    public function findOneByEmail(string $email): User|null
+    public function findOneByEmail(string $email): ?User
     {
         return User::select([
             'id',

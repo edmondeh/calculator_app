@@ -30,10 +30,10 @@ class AuthService implements AuthServiceInterface
     /**
      * Login
      *
-     * @param $loginData
+     * @param  array  $loginData
      * @return JsonResponse
      */
-    public function login($loginData): JsonResponse
+    public function login(array $loginData): JsonResponse
     {
         $user = $this->userRepository->findOneByEmail($loginData['email']);
 
@@ -53,7 +53,11 @@ class AuthService implements AuthServiceInterface
         return response()->json($tokenData, Response::HTTP_OK);
     }
 
-    public function register($registerData): JsonResponse
+    /**
+     * @param  array  $registerData
+     * @return JsonResponse
+     */
+    public function register(array $registerData): JsonResponse
     {
         $user = $this->userRepository->findOneByEmail($registerData['email']);
         if ($user) {
@@ -70,7 +74,11 @@ class AuthService implements AuthServiceInterface
         return response()->json($user);
     }
 
-    public function refresh_token($refreshTokenData): JsonResponse
+    /**
+     * @param  array  $refreshTokenData
+     * @return JsonResponse
+     */
+    public function refreshToken(array $refreshTokenData): JsonResponse
     {
         $oClient = $this->oAuthClinetRepository->getOAuthClient();
         if (!$oClient) {
@@ -84,11 +92,11 @@ class AuthService implements AuthServiceInterface
 
     /**
      * @param  OClient  $oClient
-     * @param           $email
-     * @param           $password
+     * @param  string   $email
+     * @param  string   $password
      * @return array
      */
-    private function getTokenAndRefreshToken(OClient $oClient, $email, $password): array
+    private function getTokenAndRefreshToken(OClient $oClient, string $email, string $password): array
     {
         $response = Http::asForm()->post(config('app.url') . '/oauth/token', [
             'grant_type'    => 'password',
@@ -104,10 +112,10 @@ class AuthService implements AuthServiceInterface
 
     /**
      * @param  OClient  $oClient
-     * @param           $refresh_token
+     * @param  string   $refresh_token
      * @return array
      */
-    private function getNewTokenAndRefreshToken(OClient $oClient, $refresh_token): array
+    private function getNewTokenAndRefreshToken(OClient $oClient, string $refresh_token): array
     {
         $response = Http::asForm()->post(config('app.url') . '/oauth/token', [
             'grant_type'    => 'refresh_token',

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Product Sans Regular";
+  src: local("ProductSans Regular"),
+  url("./assets/fonts/Product Sans Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Product Sans Bold";
+  src: local("Product Sans Bold"),
+  url("./assets/fonts/Product Sans Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Figtree', sans-serif;
+}

@@ -1,0 +1,49 @@
+.app_navbar {
+  width: calc(100% - 255px);
+  height: 100px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #CFCFCF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 255px;
+}
+
+.app_navbar__text {
+  display: flex;
+  flex-direction: row;
+  margin-left: 3rem;
+
+  h1 {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 91.5%;
+  }
+}
+
+.app_navbar__textImage {
+  width: 32px;
+  height: 31px;
+  margin-left: 3px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.app_navbar__photo {
+  height: 50px;
+  width: 50px;
+  margin-right: 3rem;
+  border-radius: 50%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+}

@@ -3,7 +3,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class AuthController extends TestCase
+class AuthControllerTest extends TestCase
 {
     /**
      * Login method

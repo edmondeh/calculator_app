@@ -1,5 +1,5 @@
 .app_sidebar {
-  position: absolute;
+  position: fixed;
   width: 255px;
   height: 100vh;
   left: 0;
@@ -28,7 +28,6 @@
 }
 
 .app_sidebar__linksList {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

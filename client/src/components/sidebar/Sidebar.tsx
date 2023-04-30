@@ -1,17 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalculator, faHouse, faFile } from '@fortawesome/free-solid-svg-icons';
 import './sidebar.scss';
 
 const Sidebar = () => {
+  const location = useLocation();
+
   return (
     <div className="app_sidebar">
       <div className="app_sidebar__logo">
         <h1>Admin</h1>
       </div>
       <div className="app_sidebar__linksList">
-        <Link className="app_sidebar__linksItem app_sidebar__linksItem--active" to="/">
+        <Link
+          className={`app_sidebar__linksItem ${
+            location.pathname === '/' ? 'app_sidebar__linksItem--active' : ''
+          }`}
+          to="/"
+        >
           <div className="app_sidebar__linksItem__svg">
             <FontAwesomeIcon icon={faHouse} />
           </div>
@@ -19,7 +26,12 @@ const Sidebar = () => {
             <p>Dashboard</p>
           </div>
         </Link>
-        <Link className="app_sidebar__linksItem" to="/calculate">
+        <Link
+          className={`app_sidebar__linksItem ${
+            location.pathname === '/calculate' ? 'app_sidebar__linksItem--active' : ''
+          }`}
+          to="/calculate"
+        >
           <div className="app_sidebar__linksItem__svg">
             <FontAwesomeIcon icon={faCalculator} />
           </div>
@@ -27,7 +39,14 @@ const Sidebar = () => {
             <p>Calculate</p>
           </div>
         </Link>
-        <Link className="app_sidebar__linksItem" to="/calculation_hisotry">
+        <Link
+          className={`app_sidebar__linksItem ${
+            location.pathname === '/calculation_history'
+              ? 'app_sidebar__linksItem--active'
+              : ''
+          }`}
+          to="/calculation_history"
+        >
           <div className="app_sidebar__linksItem__svg">
             <FontAwesomeIcon icon={faFile} />
           </div>

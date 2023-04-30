@@ -8,7 +8,7 @@ const AppLayout = ({ children }: AppLayoutProp) => {
     <>
       <Sidebar />
       <Navbar />
-      <div className="app_conainer">{children}</div>
+      <div className="app_container">{children}</div>
     </>
   );
 };

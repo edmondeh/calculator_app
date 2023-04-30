@@ -50,7 +50,7 @@ class AuthService implements AuthServiceInterface
 
         $tokenData = $this->getTokenAndRefreshToken($oClient, $loginData['email'], $loginData['password']);
 
-        return response()->json($tokenData, Response::HTTP_OK);
+        return response()->json(['token' => $tokenData, 'user' => $user], Response::HTTP_OK);
     }
 
     /**

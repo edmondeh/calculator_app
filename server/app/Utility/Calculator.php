@@ -41,7 +41,7 @@ class Calculator
         for ($i = 0; $i < $string_length; $i++) {
             $c = $string[$i];
 
-            if ($c === '-' && ($i === 0 || self::checkIfChariIsOperator($string[$i - 1]))) {
+            if ($c === '-' && ($i === 0 || self::checkIfCharIsOperator($string[$i - 1]))) {
                 $sign = -1;
                 continue;
             }
@@ -50,7 +50,7 @@ class Calculator
                 $num = $num * 10 + $c - '0';
             }
 
-            if ($i === $string_length - 1 || self::checkIfChariIsOperator($c)) {
+            if ($i === $string_length - 1 || self::checkIfCharIsOperator($c)) {
                 switch ($active_operator) {
                     case '+':
                         $stack[] = $num * $sign;
@@ -82,7 +82,7 @@ class Calculator
         return $result;
     }
 
-    public static function checkIfChariIsOperator(string $c): bool
+    public static function checkIfCharIsOperator(string $c): bool
     {
         return $c === '+' || $c === '-' || $c === '*' || $c === '/';
     }
